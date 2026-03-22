@@ -1,0 +1,12 @@
+{
+  "name": "projeto-kanbam",
+  "version": "1.0.0",
+  "description": "Sistema mockado de gestão de chamados de TI",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}

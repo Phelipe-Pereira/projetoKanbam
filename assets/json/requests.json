@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "titulo": "Sistema fora do ar",
+    "pessoasAfetadas": 20,
+    "impacto": true,
+    "time": "Financeiro",
+    "status": "Recebido"
+  },
+  {
+    "id": 2,
+    "titulo": "Problema de rede",
+    "pessoasAfetadas": 5,
+    "impacto": false,
+    "time": "TI",
+    "status": "Em análise"
+  },
+  {
+    "id": 3,
+    "titulo": "Atualização de software",
+    "pessoasAfetadas": 50,
+    "impacto": true,
+    "time": "Desenvolvimento",
+    "status": "Em revisão"
+  },
+  {
+    "id": 4,
+    "titulo": "Erro de login",
+    "pessoasAfetadas": 10,
+    "impacto": false,
+    "time": "Suporte",
+    "status": "Concluído"
+  },
+  {
+    "id": 5,
+    "titulo": "Backup falhou",
+    "pessoasAfetadas": 0,
+    "impacto": true,
+    "time": "Infraestrutura",
+    "status": "Recebido"
+  },
+  {
+    "id": 6,
+    "titulo": "Solicitação de acesso",
+    "pessoasAfetadas": 1,
+    "impacto": false,
+    "time": "RH",
+    "status": "Em análise"
+  }
+]
