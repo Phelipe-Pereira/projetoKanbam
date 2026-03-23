@@ -81,17 +81,6 @@ function buildActionButtons(requestId, status) {
 // Drag and drop removido conforme pedido
 let isDragging = false;
 
-// Função para abrir modal de criação
-function openCreateModal() {
-  const modalEl = document.getElementById('createModal');
-  if (!modalEl) {
-    alert('Modal not found');
-    return;
-  }
-  const modal = new bootstrap.Modal(modalEl);
-  modal.show();
-}
-
 function openEditModal(request) {
   const editModalEl = document.getElementById('editModal');
   if (!editModalEl) return;
@@ -146,82 +135,6 @@ function updateCounters() {
 }
 
 loadRequests();
-
-// Lógica do formulário de criação
-const createForm = document.getElementById("createForm");
-const formMessage = document.getElementById("formMessage");
-
-function showMessage(message, type) {
-  if (!formMessage) return;
-  formMessage.innerHTML = `
-    <div class="alert alert-${type}" role="alert">
-      ${message}
-    </div>
-  `;
-}
-
-if (createForm) {
-  console.log('Create form found');
-  createForm.addEventListener("submit", function (event) {
-    console.log('Create form submitted');
-    event.preventDefault();
-
-    const titulo = document.getElementById("titulo").value.trim();
-    const pessoasAfetadas = Number(
-      document.getElementById("pessoasAfetadas").value,
-    );
-    const time = document.getElementById("time").value;
-    const impacto = document.querySelector(
-      'input[name="impacto"]:checked',
-    )?.value;
-
-    if (
-      !titulo ||
-      pessoasAfetadas === null ||
-      pessoasAfetadas < 0 ||
-      !time ||
-      impacto === undefined
-    ) {
-      showMessage("Preencha todos os campos antes de criar.", "danger");
-      return;
-    }
-
-    const newRequest = {
-      id: Date.now(),
-      titulo,
-      pessoasAfetadas,
-      impacto: impacto === "true",
-      time,
-      status: "Recebido",
-    };
-
-    saveLocalRequest(newRequest);
-
-    createForm.reset();
-    showMessage(
-      "Chamado criado com sucesso.",
-      "success",
-    );
-
-    // Fechar modal e recarregar
-    const modalEl = document.getElementById('createModal');
-    if (modalEl) {
-      // Remover foco do botão de submit antes de esconder o modal para evitar conflito de aria-hidden
-      if (document.activeElement && typeof document.activeElement.blur === 'function') {
-        document.activeElement.blur();
-      }
-      const createModalInstance = bootstrap.Modal.getOrCreateInstance(modalEl);
-      createModalInstance.hide();
-    }
-
-    renderBoard();
-  });
-}
-
-function saveLocalRequest(request) {
-  allRequests.push(request);
-  persistLocalRequests();
-}
 
 // Lógica do formulário de edição
 const editForm = document.getElementById("editForm");

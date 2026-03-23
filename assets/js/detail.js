@@ -13,8 +13,8 @@ async function loadDetail() {
     const response = await fetch("../assets/json/requests.json");
     const mockedRequests = await response.json();
 
-    const localRequests = JSON.parse(localStorage.getItem("extraRequests")) || [];
-    const allRequests = [...mockedRequests, ...localRequests];
+    const savedRequests = JSON.parse(localStorage.getItem("allRequests"));
+    const allRequests = savedRequests || mockedRequests;
 
     const request = allRequests.find(r => r.id === id);
 

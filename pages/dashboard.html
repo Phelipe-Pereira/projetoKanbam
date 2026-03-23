@@ -28,7 +28,7 @@
         </div>
 
         <div class="d-flex gap-2 flex-wrap">
-          <button type="button" class="btn btn-light" onclick="openCreateModal()">Criar Chamado</button>
+          <a href="create.html" class="btn btn-light text-primary fw-semibold">Formulário Externo</a>
           <a href="metrics.html" class="btn btn-light text-primary fw-semibold">Ver Métricas</a>
         </div>
       </div>
@@ -108,67 +108,8 @@
     <footer class="site-footer mt-5">
       <div class="container d-flex flex-wrap justify-content-between align-items-center py-3">
         <span class="footer-brand">FluxDesk</span>
-        <span class="footer-meta">v1.0 • Feito com ❤️</span>
       </div>
     </footer>
-
-    <!-- Modal de Criação -->
-    <div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="createModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="createModalLabel">Criar Novo Chamado</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <form id="createForm">
-              <div class="mb-3">
-                <label for="titulo" class="form-label">Título</label>
-                <input type="text" class="form-control" id="titulo" placeholder="Ex.: Sistema fora do ar" required />
-              </div>
-
-              <div class="row">
-                <div class="col-md-6 mb-3">
-                  <label for="pessoasAfetadas" class="form-label">Quantidade de pessoas afetadas</label>
-                  <input type="number" class="form-control" id="pessoasAfetadas" min="0" placeholder="Ex.: 20" required />
-                </div>
-                <div class="col-md-6 mb-3">
-                  <label for="time" class="form-label">Time de origem</label>
-                  <select class="form-select" id="time" required>
-                    <option value="">Selecione</option>
-                    <option value="Financeiro">Financeiro</option>
-                    <option value="TI">TI</option>
-                    <option value="Desenvolvimento">Desenvolvimento</option>
-                    <option value="Suporte">Suporte</option>
-                    <option value="Infraestrutura">Infraestrutura</option>
-                    <option value="RH">RH</option>
-                  </select>
-                </div>
-              </div>
-
-              <div class="mb-3">
-                <label class="form-label d-block">Impacto (impede funcionamento)?</label>
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="impacto" id="impactoSim" value="true" required />
-                  <label class="form-check-label" for="impactoSim">Sim</label>
-                </div>
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="impacto" id="impactoNao" value="false" required />
-                  <label class="form-check-label" for="impactoNao">Não</label>
-                </div>
-              </div>
-
-
-            </form>
-            <div id="formMessage" class="mt-3"></div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-            <button type="submit" form="createForm" class="btn btn-primary">Criar Chamado</button>
-          </div>
-        </div>
-      </div>
-    </div>
 
     <!-- Modal de Edição -->
     <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">

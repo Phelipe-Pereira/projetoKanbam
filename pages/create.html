@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>FluxDesk | Criar Chamado</title>
+    <title>FluxDesk | Portal de Solicitações</title>
     <link rel="preconnect" href="https://cdn.jsdelivr.net" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
@@ -17,19 +17,43 @@
     <header class="topbar">
       <div class="container">
         <span class="brand-mark">FluxDesk</span>
-        <h1 class="page-title">Criar Novo Chamado</h1>
+        <h1 class="page-title">Portal de Solicitações</h1>
         <p class="page-subtitle">
-          Cadastro de solicitações de TI
+          Abra sua solicitação e acompanhe o status
         </p>
       </div>
     </header>
 
     <main class="container my-4">
-      <div class="row justify-content-center">
+      <div class="row g-4">
         <div class="col-lg-8">
           <div class="card shadow-sm border-0">
             <div class="card-body p-4">
+              <h5 class="mb-3">Nova solicitação</h5>
               <form id="createForm">
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <label for="solicitanteNome" class="form-label">Seu nome</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="solicitanteNome"
+                      placeholder="Ex.: Maria Silva"
+                      required
+                    />
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="solicitanteEmail" class="form-label">Seu email</label>
+                    <input
+                      type="email"
+                      class="form-control"
+                      id="solicitanteEmail"
+                      placeholder="maria@empresa.com"
+                      required
+                    />
+                  </div>
+                </div>
+
                 <div class="mb-3">
                   <label for="titulo" class="form-label">Título</label>
                   <input
@@ -104,18 +128,51 @@
 
                 <div class="d-flex gap-2 flex-wrap">
                   <button type="submit" class="btn btn-primary">
-                    Criar Chamado
+                    Enviar solicitação
                   </button>
                   <a
                     href="./dashboard.html"
                     class="btn btn-outline-secondary"
                   >
-                    Voltar ao Dashboard
+                    Acesso interno (Kanban)
                   </a>
                 </div>
               </form>
 
               <div id="formMessage" class="mt-3"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div class="card shadow-sm border-0 h-100">
+            <div class="card-body p-4">
+              <h5 class="mb-3">Suas solicitações</h5>
+              <p class="text-muted mb-3">Informe seu email para visualizar o andamento.</p>
+              <div class="input-group mb-3">
+                <input
+                  type="email"
+                  id="trackingEmail"
+                  class="form-control"
+                  placeholder="seu@email.com"
+                />
+                <button type="button" id="trackBtn" class="btn btn-outline-primary">Ver status</button>
+              </div>
+              <div class="table-responsive">
+                <table class="table table-sm align-middle">
+                  <thead>
+                    <tr>
+                      <th>Título</th>
+                      <th>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody id="myRequestsTable">
+                    <tr>
+                      <td colspan="2" class="text-muted">Nenhuma solicitação encontrada.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
         </div>
@@ -125,7 +182,6 @@
     <footer class="site-footer mt-5">
       <div class="container d-flex flex-wrap justify-content-between align-items-center py-3">
         <span class="footer-brand">FluxDesk</span>
-        <span class="footer-meta">v1.0 • Feito com ❤️</span>
       </div>
     </footer>
 
