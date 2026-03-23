@@ -5,6 +5,10 @@ const columns = {
   Concluído: document.getElementById("concluido"),
 };
 
+if (sessionStorage.getItem("isLoggedIn") !== "true") {
+  window.location.href = "../index.html";
+}
+
 let allRequests = [];
 
 async function loadRequests() {

@@ -1,5 +1,9 @@
 let allRequests = [];
 
+if (sessionStorage.getItem("isLoggedIn") !== "true") {
+  window.location.href = "../index.html";
+}
+
 async function loadRequests() {
   try {
     const response = await fetch("../assets/json/requests.json");
